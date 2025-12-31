@@ -10,9 +10,10 @@
                         http://www.springframework.org/schema/util
 						http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
-	<bean id="updateUserdaoPostCallerFactory" class="org.simple4j.wsclient.caller.FreeMarkerJSONCallerFactory">
+	<bean id="updateUserdaoPostCallerFactory" class="org.simple4j.wsclient.caller.factory.FreeMarkerCallerFactory">
 		<property name="httpWSClient" ref="daoHttpWSClient"></property>
-		<property name="jSONConfig">
+		<property name="configParser" ref="jsonConfigParser"></property>
+		<property name="config">
 			<value>
 				<![CDATA[
 {
@@ -21,7 +22,7 @@
     "request": {
         "method": "POST",
         "urlPattern": "/pojoashttp/request.json",
-        "body": "{\"beanId\":\"userDAO\",\"methodName\":\"updateUser\",\"methodParameters\":[{\"className\":\"org.simple4j.wsfeeler.test.ws.UserVO\",\"valueJSON\":{\"userPK\":\"${userPK}\", \"displayName\":\"${displayName}\",\"gender\":\"${gender}\",\"birthYear\":${birthYear},\"birthMonth\":${birthMonth}}}]}",
+        "classpathBodyFile": "/wstestsuite/connectors/daowsclient/updateUserdaoPostBody.json",
         "staticHeaders": {
             "Content-Type": "application/JSON"
         },
@@ -44,9 +45,10 @@
 		</property>
 	</bean>
 
-	<bean id="getUserdaoPostCallerFactory" class="org.simple4j.wsclient.caller.FreeMarkerJSONCallerFactory">
+	<bean id="getUserdaoPostCallerFactory" class="org.simple4j.wsclient.caller.factory.FreeMarkerCallerFactory">
 		<property name="httpWSClient" ref="daoHttpWSClient"></property>
-		<property name="jSONConfig">
+		<property name="configParser" ref="jsonConfigParser"></property>
+		<property name="config">
 			<value>
 				<![CDATA[
 {
@@ -55,7 +57,7 @@
     "request": {
         "method": "POST",
         "urlPattern": "/pojoashttp/request.json",
-        "body": "{\"beanId\":\"userDAO\",\"methodName\":\"getUser\",\"methodParameters\":[{\"className\":\"java.lang.String\",\"value\":\"${userPK}\"}]}",
+        "classpathBodyFile": "/wstestsuite/connectors/daowsclient/getUserdaoPostBody.json",
         "staticHeaders": {
             "Content-Type": "application/JSON"
         },

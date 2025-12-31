@@ -1,0 +1,1 @@
+{"beanId":"userDAO","methodName":"updateUser","methodParameters":[{"className":"org.simple4j.wsfeeler.test.ws.UserVO","valueJSON":{"userPK":"${userPK}", "displayName":"${displayName}","gender":"${gender}","birthYear":${birthYear},"birthMonth":${birthMonth}}}]}

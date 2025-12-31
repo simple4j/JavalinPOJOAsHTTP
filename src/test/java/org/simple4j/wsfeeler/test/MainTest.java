@@ -106,7 +106,7 @@ public class MainTest
 			for (Iterator<TestCase> iterator = ts.getFailedTestCases().iterator(); iterator.hasNext();)
 			{
 				TestCase tc = (TestCase) iterator.next();
-				tcPaths.add(tc.name);
+				tcPaths.add(tc.getName());
 			}
 		}
 		Assert.assertTrue("Failed testcases are :" + tcPaths, success);
