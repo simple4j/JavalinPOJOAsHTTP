@@ -4,7 +4,7 @@
 	<groupId>org.simple4j</groupId>
 	<artifactId>JavalinPOJOAsHTTP</artifactId>
 	<packaging>jar</packaging>
-	<version>25.12.29.0</version>
+	<version>25.12.29.1-SNAPSHOT</version>
 	<name>JavalinPOJOAsHTTP</name>
 	<url>https://github.com/simple4j/JavalinPOJOAsHTTP</url>
 	<licenses>
@@ -25,7 +25,7 @@
 		<connection>scm:git:https://github.com/simple4j/JavalinPOJOAsHTTP.git</connection>
 		<developerConnection>scm:git:https://github.com/simple4j/JavalinPOJOAsHTTP.git</developerConnection>
 		<url>https://github.com/simple4j/JavalinPOJOAsHTTP</url>
-	  <tag>JavalinPOJOAsHTTP-25.12.29.0</tag>
+	  <tag>HEAD</tag>
 	</scm>
 	<distributionManagement>
 		<snapshotRepository>
