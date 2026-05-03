@@ -34,8 +34,9 @@ public class UserWS
 		}
 		ObjectMapper om = new ObjectMapper();
 
-		Javalin javalin = Javalin.create();
-        javalin.get("/user/{userPK}", ctx -> 
+		Javalin javalin = Javalin.create(config -> {
+
+			config.routes.get("/user/{userPK}", ctx -> 
 			{
 				ctx.header("Content-Type", "application/JSON");
 				String userPK = ctx.pathParam("userPK");
@@ -56,7 +57,8 @@ public class UserWS
 				ctx.result(om.writeValueAsString(user));
 			});
 
-        javalin.put("/user", ctx -> 
+
+			config.routes.put("/user", ctx -> 
 			{
 				logger.info("inside user put");
 				if (ctx.contentLength() > 2048)
@@ -82,7 +84,7 @@ public class UserWS
 				return;
 			});
 
-        javalin.post("/user", ctx -> 
+			config.routes.post("/user", ctx -> 
 			{
 				logger.info("inside user post");
 				if (ctx.contentLength() > 2048)
@@ -107,7 +109,7 @@ public class UserWS
 				return ;
 			});
 
-        javalin.start(2001);
+		}).start(2001);
 	}
 
 	private static StringBuilder validateUserVO(UserVO userVO)

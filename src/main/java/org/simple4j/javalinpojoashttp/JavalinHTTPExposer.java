@@ -16,15 +16,13 @@ public class JavalinHTTPExposer extends HTTPExposer
 	@Override
 	public void expose()
 	{
-		Javalin javalin = Javalin.create();
-
-        javalin.post(this.getUrlBase()+"/request.json", ctx -> 
-        {
-            String bodyJson = ctx.body();
-            ctx.result(processRequest(bodyJson));
-        });
-        
-        javalin.start(this.getListenerPortNumber());
+		Javalin javalin = Javalin.create(config -> {
+			config.routes.post(this.getUrlBase()+"/request.json", ctx -> 
+	        {
+	            String bodyJson = ctx.body();
+	            ctx.result(processRequest(bodyJson));
+	        });
+		}).start(this.getListenerPortNumber());
 
 	}
 
